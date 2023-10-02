@@ -62,7 +62,7 @@ main {
   padding: 50px;
   border-radius: 50px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 1000px;
@@ -215,7 +215,7 @@ tbody tr:hover {
   margin-left: -10px;
 }
 
-#separation3,
+#separation2,
 #separation1 {
   display: none;
 }
