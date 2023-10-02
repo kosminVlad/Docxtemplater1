@@ -6,6 +6,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html,
 body {
   width: 100%;
@@ -15,8 +16,8 @@ body {
 body {
   font-family: 'Lato', sans-serif;
 
-background: #64E87C;
-background: linear-gradient(135deg, #64E87C, #3B68E6);
+  background: #64E87C;
+  background: linear-gradient(135deg, #64E87C, #3B68E6);
   background-attachment: fixed;
 
 }
@@ -62,7 +63,7 @@ main {
   border-radius: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 1000px;
   backdrop-filter: blur(125px);
@@ -84,8 +85,8 @@ input {
   border: 2px solid black;
   border-radius: 10px;
   -webkit-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
--moz-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
+  -moz-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
+  box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
 }
 
 select {
@@ -94,7 +95,7 @@ select {
 
 option,
 select {
-  
+
   color: #000000;
   font-family: 'Roboto', sans-serif;
   width: 900px;
@@ -153,10 +154,9 @@ label {
   height: 1em;
 }
 
-#days:checked~.days-day {
+#days1:checked~.days-day, #days2:checked~.days-day, #days3:checked~.days-day, #days4:checked~.days-day, #days5:checked~.days-day, #days6:checked~.days-day {
   color: yellow;
 }
-
 table {
   background: #094d64;
   border-collapse: collapse;
@@ -167,6 +167,7 @@ table {
   -moz-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
   box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
 }
+
 th {
   border-bottom: 1px solid #364043;
   color: #E2B842;
@@ -175,18 +176,22 @@ th {
   padding: 0.5em 1em;
   text-align: left;
 }
+
 td {
   color: #fff;
   font-weight: 400;
   padding: 12px;
   font-size: 14px;
 }
+
 .disabled td {
   color: #4F5F64;
 }
+
 tbody tr {
   transition: background 0.25s ease;
 }
+
 tbody tr:hover {
   background: #02516b;
 }
@@ -208,4 +213,13 @@ tbody tr:hover {
   flex-direction: column;
   justify-content: center;
   margin-left: -10px;
+}
+
+#separation3,
+#separation1 {
+  display: none;
+}
+
+.label-block-days {
+  width: 900px;
 }

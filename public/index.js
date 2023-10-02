@@ -202,7 +202,7 @@ function generateTable(dates) {
   // Create a header row with month names
   const headerRow = table.insertRow();
   headerRow.classList.add("header-row");
-  const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+  const monthNames = ["Сентябрь", "Октябрь", "Ноябрь", "Декабрь","Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", ];
   for (let i = 0; i < monthNames.length; i++) {
     const cell = headerRow.insertCell();
     cell.innerHTML = monthNames[i];

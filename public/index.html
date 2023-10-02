@@ -27,7 +27,8 @@
   <main>
     <div class="main-block1">
       <form id="input-form">
-        <div class="separation">
+
+        <div class="separation" id="separation1">
           <div class="label-block">
             <label for="name-input">ФИО Педагога:</label>
             <input type="text" id="name-input" name="name">
@@ -57,7 +58,7 @@
           </div>
         </div>
 
-        <div class="separation">
+        <div class="separation" id="separation2">
           <div class="label-block">
             <label for="start-year">Выберите год на начала обучения:</label>
             <select id="start-year" name="start-year">
@@ -123,49 +124,60 @@
             <input type="number" id="hours" name="hours">
           </div>
         </div>
+        <div class="separation" id="separation3">
+          <div class="label-block-days">
+            <div class="select-days">
+              <label for="days">Выберите дни недели:</label>
+              <div class="days">
+                <div class="days-separation">
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days1" name="days[]"
+                      value="1"><label class="days-day" for="days1">Понедельник</label></div>
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days4" name="days[]"
+                      value="4"><label class="days-day" for="days4">Четверг</label></div>
+                </div>
+                <div class="days-separation">
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days2" name="days[]"
+                      value="2"><label class="days-day" for="days2">Вторник</label></div>
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days5" name="days[]"
+                      value="5"><label class="days-day" for="days5">Пятница</label></div>
+                </div>
+                <div class="days-separation">
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days3" name="days[]"
+                      value="3"><label class="days-day" for="days3">Среда</label></div>
+                  <div class="days-v"><input class="days-input" type="checkbox" id="days6" name="days[]"
+                      value="6"><label class="days-day" for="days6">Суббота</label></div>
 
-        <div class="label-block">
-          <div class="select-days">
-            <label for="days">Выберите дни недели:</label>
-            <div class="days">
-              <div class="days-separation">
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="1"><label
-                    class="days-day" for="days">Понедельник</label></div>
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="4"><label
-                    class="days-day" for="days">Четверг</label></div>
-              </div>
-              <div class="days-separation">
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="2"><label
-                    class="days-day" for="days">Вторник</label></div>
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="5"><label
-                    class="days-day" for="days">Пятница</label></div>
-              </div>
-              <div class="days-separation">
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="3"><label
-                    class="days-day" for="days">Среда</label></div>
-                <div class="days-v"><input class="days-input" type="checkbox" id="days" name="days[]" value="6"><label
-                    class="days-day" for="days">Суббота</label></div>
+
+                </div>
               </div>
             </div>
+            <div id="output">
+
+              <a id="gen-date" href="#" onclick="generateDates()">👉 Создать даты</a>
+              <table>
+                <thead>
+                </thead>
+                <tbody id="dates-table-body">
+                </tbody>
+              </table>
+            </div>
+
+            <div id="input-fields"></div>
+
+
+            <button type="submit" id="submit-btn">Сделать хорошо</button>
           </div>
-        </div>
-        <div id="output">
+        </form>
+        
 
-          <a id="gen-date" href="#" onclick="generateDates()">👉 Создать даты</a>
-          <table>
-            <thead>
-            </thead>
-            <tbody id="dates-table-body">
-            </tbody>
-          </table>
-        </div>
-
-        <div id="input-fields"></div>
-
-
-        <button type="submit" id="submit-btn">Сделать хорошо</button>
 
     </div>
+    <p>
+    <p class="pageNum"> 1 </p>/3
+    </p>
+
+    <div class="previousPageBtn">sdadsadadsa</div> <div class="nextPageBtn">sasdasadsa</div>
+
     </div>
 
   </main>
@@ -176,6 +188,7 @@
 
 
   <script src="index.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
