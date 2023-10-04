@@ -126,8 +126,10 @@ label {
 .days-v {
   display: flex;
   width: auto;
-  height: 50px;
+  height: 70px;
   margin-bottom: 30px;
+  flex-direction: column;
+align-items: center;
 }
 
 .days-separation {
@@ -150,8 +152,8 @@ label {
 }
 
 .days-input {
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
 }
 
 #days1:checked~.days-day, #days2:checked~.days-day, #days3:checked~.days-day, #days4:checked~.days-day, #days5:checked~.days-day, #days6:checked~.days-day {
@@ -163,9 +165,9 @@ table {
   border-radius: 30px;
   margin: 1em;
   padding: 20px;
-  -webkit-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
+  /* -webkit-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
   -moz-box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
-  box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26);
+  box-shadow: 0px 4px 8px 7px rgba(34, 60, 80, 0.26); */
 }
 
 th {
@@ -205,7 +207,14 @@ tbody tr:hover {
 }
 
 #gen-date {
-  font-size: 30px;
+  font-size: 30px; 
+  border-radius: 10px;
+  width: 270px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  cursor: pointer;
 }
 
 #input-form {
@@ -215,11 +224,77 @@ tbody tr:hover {
   margin-left: -10px;
 }
 
-#separation2,
-#separation1 {
+.sep1 {
   display: none;
+}
+
+.sep2 {
+  display: none;
+}
+
+.sep3 {
+  display: none;
+}
+
+
+.previousPageBtn {
+  width: 100px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nextPageBtn {
+  width: 100px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .label-block-days {
   width: 900px;
+}
+
+.Page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.previousPageBtn:hover {
+  color: #ffe293;
+}
+.nextPageBtn:hover {
+  color: #ffe293;
+}
+
+.doGood {
+  display: none;
+}
+
+.doGoodActive {
+  width: 150px;
+  height: 70px;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+   user-select: none;
+}
+
+.doGoodActive:hover {
+  color: #ffe600;
 }

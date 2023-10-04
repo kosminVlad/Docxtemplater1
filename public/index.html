@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="separation" id="separation2">
+        <div class="separation sep2" id="separation2">
           <div class="label-block">
             <label for="start-year">Выберите год на начала обучения:</label>
             <select id="start-year" name="start-year">
@@ -124,8 +124,8 @@
             <input type="number" id="hours" name="hours">
           </div>
         </div>
-        
-        <div class="separation" id="separation3">
+
+        <div class="separation sep3" id="separation3">
           <div class="label-block-days">
             <div class="select-days">
               <label for="days">Выберите дни недели:</label>
@@ -166,21 +166,28 @@
             <div id="input-fields"></div>
 
 
-            <button type="submit" id="submit-btn">Сделать хорошо</button>
 
-            
+
           </div>
       </form>
-        
 
-      
+
+
     </div>
 
-    <p>
-      <p class="pageNum"> 1 </p>/3
-      </p>
-  
-      <div class="previousPageBtn">sdadsadadsa</div> <div class="nextPageBtn">sasdasadsa</div>
+    <div class="Page">
+      <div style="display: flex; flex-direction: row; ">
+        <p>
+        <p class="pageNum"> 1 </p>/3
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div class="previousPageBtn" onclick="previousPage()">Назад</div>
+        <div class="nextPageBtn" onclick="nextPage()">Далее</div>
+        <button class="doGood" type="submit" id="submit-btn">Сделать хорошо</button>
+      </div>
+    </div>
+
     </div>
 
   </main>

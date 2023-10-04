@@ -12,17 +12,17 @@ let weekDays = document.querySelector(".weekDays")
 
 function nextPage() {
     if (pageNumber == 1) {
-        page1.classList.toggle("page-1")
-        page2.classList.toggle("page-2")
+        page1.classList.toggle("sep1")
+        page2.classList.toggle("sep2")
     }
     else if (pageNumber == 2) {
-        page2.classList.toggle("page-2")
-        page3.classList.toggle("page-3")
+        page2.classList.toggle("sep2")
+        page3.classList.toggle("sep3")
         htmlNextPageBtn.classList.toggle("doGood")
         htmlDoGood.classList.toggle("doGoodActive")
         htmlDoGood.classList.toggle("doGood")
     }
-    if (pageNumber<3) {
+    if (pageNumber < 3) {
         pageNumber += 1
     }
     htmlPageNum.innerHTML = `${pageNumber}`
@@ -31,15 +31,15 @@ function nextPage() {
 
 function previousPage() {
     if (pageNumber == 3) {
-        page3.classList.toggle("page-3")
-        page2.classList.toggle("page-2")
+        page3.classList.toggle("sep3")
+        page2.classList.toggle("sep2")
         htmlNextPageBtn.classList.toggle("doGood")
         htmlDoGood.classList.toggle("doGoodActive")
         htmlDoGood.classList.toggle("doGood")
     }
     else if (pageNumber == 2) {
-        page2.classList.toggle("page-2")
-        page1.classList.toggle("page-1")
+        page2.classList.toggle("sep2")
+        page1.classList.toggle("sep1")
     }
     if (pageNumber>1) {
         pageNumber -= 1

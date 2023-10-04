@@ -5,7 +5,7 @@ const dates = [];
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+
   // Собираем данные из формы
   // const formData = new FormData(form);
   // const data = {
@@ -27,8 +27,8 @@ form.addEventListener('submit', async (e) => {
   //   date_5: formData.get('date_5'),
   // };
 
-const formData = new FormData(form);
-const data = [...formData.entries()].reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+  const formData = new FormData(form);
+  const data = [...formData.entries()].reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
 
 
@@ -40,14 +40,14 @@ const data = [...formData.entries()].reduce((obj, [key, value]) => ({ ...obj, [k
       body: JSON.stringify(data)
     });
     const blob = await response.blob();
-    
+
     // Создаем ссылку на скачивание файла
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
     link.download = 'generated.docx';
     link.click();
-    
+
     outputDiv.textContent = '';
   } catch (error) {
     outputDiv.textContent = error.message;
@@ -83,15 +83,15 @@ function isHoliday(date) {
   if (month === 5 && (day === 1 || day === 8 || day === 9)) return true; // Майские праздники
   if (month === 11 && (day === 4)) return true; // 4 ноября
   if (month === 6 && (day === 12)) return true; // 12 июня
-  if (month === 1 && (day === 1 || 
-                      day === 2 || 
-                      day === 3 || 
-                      day === 4 || 
-                      day === 5 || 
-                      day === 6 || 
-                      day === 7 || 
-                      day === 8 )) return true; // Новогодние праздники
-                      
+  if (month === 1 && (day === 1 ||
+    day === 2 ||
+    day === 3 ||
+    day === 4 ||
+    day === 5 ||
+    day === 6 ||
+    day === 7 ||
+    day === 8)) return true; // Новогодние праздники
+
   return false;
 }
 
@@ -102,77 +102,81 @@ links.addEventListener('click', (event) => {
   event.preventDefault()
 })
 
+let zxcasd = 0
 
-function generateDates() 
-{
-  const startYear = document.getElementById("start-year").value;
-  const endYear = document.getElementById("end-year").value;
-  const startMonth = document.getElementById("start-month").value;
-  const endMonth = document.getElementById("end-month").value;
-  const startDate = document.getElementById("start-day").value;
-  const hours = document.getElementById("hours").value;
+function generateDates() {
+  if (zxcasd == 0) {
+    const startYear = document.getElementById("start-year").value;
+    const endYear = document.getElementById("end-year").value;
+    const startMonth = document.getElementById("start-month").value;
+    const endMonth = document.getElementById("end-month").value;
+    const startDate = document.getElementById("start-day").value;
+    const hours = document.getElementById("hours").value;
 
-  const daysOfWeek = [];
-  const checkboxes = document.getElementsByName("days[]");
+    const daysOfWeek = [];
+    const checkboxes = document.getElementsByName("days[]");
 
-  for (const checkbox of checkboxes) {
-    if (checkbox.checked) {
-      daysOfWeek.push(+checkbox.value);
-    }
-  }
-
-
-  let currentDate = new Date(startYear, startMonth - 1, startDate);
-  let daysCounter = 0;
-
-  while (daysCounter < hours / 2) {
-    if (daysOfWeek.includes(currentDate.getDay()) && !isHoliday(currentDate)) {
-      dates.push(getFormattedDate(currentDate));
-      daysCounter++;
-    }
-    currentDate.setDate(currentDate.getDate() + 1);
-
-    if (currentDate.getFullYear() > endYear || (currentDate.getFullYear() == endYear && currentDate.getMonth() + 1 > endMonth)) {
-      if (dates.length < 36) {
-        const nextMonth = currentDate.getMonth() + 1;
-        let nextDate = new Date(startYear, nextMonth, 1);
-        while (dates.length < 36 && (nextDate.getFullYear() < endYear || (nextDate.getFullYear() == endYear && nextDate.getMonth() + 1 <= endMonth))) {
-          if (daysOfWeek.includes(nextDate.getDay()) && !isHoliday(nextDate)) {
-            dates.push(getFormattedDate(nextDate));
-          }
-          nextDate.setDate(nextDate.getDate() + 1);
-        }
+    for (const checkbox of checkboxes) {
+      if (checkbox.checked) {
+        daysOfWeek.push(+checkbox.value);
       }
-      break;
     }
-  }
 
-  generateTable(dates);
-  
 
-  const inputFields = document.getElementById("input-fields");
+    let currentDate = new Date(startYear, startMonth - 1, startDate);
+    let daysCounter = 0;
 
-  for (let i = 0; i <= 35; i++) {
+    while (daysCounter < hours / 2) {
+      if (daysOfWeek.includes(currentDate.getDay()) && !isHoliday(currentDate)) {
+        dates.push(getFormattedDate(currentDate));
+        daysCounter++;
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
 
-    const inputDate = document.createElement("input");
-    inputDate.
-    inputDate.type = "text";
-    inputDate.name = "date_" +(i+1);
-    inputDate.value = dates[i]
+      if (currentDate.getFullYear() > endYear || (currentDate.getFullYear() == endYear && currentDate.getMonth() + 1 > endMonth)) {
+        if (dates.length < 36) {
+          const nextMonth = currentDate.getMonth() + 1;
+          let nextDate = new Date(startYear, nextMonth, 1);
+          while (dates.length < 36 && (nextDate.getFullYear() < endYear || (nextDate.getFullYear() == endYear && nextDate.getMonth() + 1 <= endMonth))) {
+            if (daysOfWeek.includes(nextDate.getDay()) && !isHoliday(nextDate)) {
+              dates.push(getFormattedDate(nextDate));
+            }
+            nextDate.setDate(nextDate.getDate() + 1);
+          }
+        }
+        break;
+      }
+    }
 
-    const inputHead = document.createElement("input");
-    inputHead.type = "text";
-    inputHead.name = "head_" +(i+1);
+    generateTable(dates);
 
-    inputFields.appendChild(inputDate);
-    inputFields.appendChild(inputHead);
-    inputFields.appendChild(document.createElement("p"));
+
+    const inputFields = document.getElementById("input-fields");
+
+    for (let i = 0; i <= 35; i++) {
+
+      const inputDate = document.createElement("input");
+      inputDate.
+        inputDate.type = "text";
+      inputDate.name = "date_" + (i + 1);
+      inputDate.value = dates[i]
+
+      const inputHead = document.createElement("input");
+      inputHead.type = "text";
+      inputHead.name = "head_" + (i + 1);
+
+      inputFields.appendChild(inputDate);
+      inputFields.appendChild(inputHead);
+      inputFields.appendChild(document.createElement("p"));
+    }
+    zxcasd = 1
+    console.log(zxcasd);
   }
 }
 
 
 function getDayOfWeek(date) {
-  const daysOfWeek = [0,1,2,3,4,5,6];
+  const daysOfWeek = [0, 1, 2, 3, 4, 5, 6];
   return daysOfWeek[date.getDay()];
 }
 
@@ -198,11 +202,12 @@ function generateTable(dates) {
 
   // Get the table element
   const table = document.getElementById("dates-table-body");
+  table.innerHTML = '' // LOL
 
   // Create a header row with month names
   const headerRow = table.insertRow();
   headerRow.classList.add("header-row");
-  const monthNames = ["Сентябрь", "Октябрь", "Ноябрь", "Декабрь","Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", ];
+  const monthNames = ["Сентябрь", "Октябрь", "Ноябрь", "Декабрь", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",];
   for (let i = 0; i < monthNames.length; i++) {
     const cell = headerRow.insertCell();
     cell.innerHTML = monthNames[i];
