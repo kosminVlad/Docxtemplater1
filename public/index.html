@@ -4,11 +4,9 @@
 <head>
   <title>Docxtemplater Example</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
-
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data-10-year-range.min.js"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +17,8 @@
 
   <header>
     <div class="header-container">
-      <h1 class="header-title"> Документация </h1>
-      <p class="header-p"> Удобное заполнение документа для экономии времени и нервов!</p>
+      <h1 class="header-title"> Календарно-тематическое планирование  </h1>
+      <p class="header-p"> Удобное заполнение документации для экономии времени и нервов!</p>
     </div>
   </header>
 
@@ -54,15 +52,18 @@
           </div>
           <div class="label-block">
             <label for="age-input">Какой год:</label>
-            <input type="number" id="age-input" name="year" min="0">
+            <!-- <input type="number" id="age-input" name="year" min="0"> -->
+            <select id="age-input" name="year">
+              <option value="2023" selected>2023</option>
+              <option value="2024">2024</option>
+            </select>
           </div>
         </div>
 
-        <div class="separation" id="separation2">
+        <div class="separation sep2" id="separation2">
           <div class="label-block">
             <label for="start-year">Выберите год на начала обучения:</label>
             <select id="start-year" name="start-year">
-              <option value="2022">2022</option>
               <option value="2023">2023</option>
               <option value="2024">2024</option>
             </select>
@@ -71,7 +72,6 @@
           <div class="label-block">
             <label for="end-year">Выберите год на конец обучения:</label>
             <select id="end-year" name="end-year">
-              <option value="2023">2023</option>
               <option value="2024">2024</option>
               <option value="2024">2025</option>
             </select>
@@ -88,7 +88,7 @@
               <option value="6">Июнь</option>
               <option value="7">Июль</option>
               <option value="8">Август</option>
-              <option value="9">Сентябрь</option>
+              <option value="9" selected>Сентябрь</option>
               <option value="10">Октябрь</option>
               <option value="11">Ноябрь</option>
               <option value="12">Декабрь</option>
@@ -118,18 +118,25 @@
             <input type="number" id="start-day" name="start-day" min="1" max="31">
           </div>
 
-
           <div class="label-block">
             <label for="hours">Часы</label>
-            <input type="number" id="hours" name="hours">
+            <!-- <input type="number" id="hours" name="hours"> -->
+
+            <select id="hours" name="hours">
+                <option value="72">72</option>
+                <option value="108">108</option>
+                <option value="144">144</option>
+            </select>
           </div>
         </div>
-        
-        <div class="separation" id="separation3">
+
+        <div class="separation sep3" id="separation3">
           <div class="label-block-days">
             <div class="select-days">
               <label for="days">Выберите дни недели:</label>
+              <hr>
               <div class="days">
+               
                 <div class="days-separation">
                   <div class="days-v"><input class="days-input" type="checkbox" id="days1" name="days[]"
                       value="1"><label class="days-day" for="days1">Понедельник</label></div>
@@ -147,40 +154,49 @@
                       value="3"><label class="days-day" for="days3">Среда</label></div>
                   <div class="days-v"><input class="days-input" type="checkbox" id="days6" name="days[]"
                       value="6"><label class="days-day" for="days6">Суббота</label></div>
-
-
                 </div>
+                
               </div>
+            
             </div>
-            <div id="output">
 
-              <a id="gen-date" href="#" onclick="generateDates()">👉 Создать даты</a>
-              <table>
-                <thead>
+            <a id="gen-date" class="gen-button" href="#">Показать таблицу</a>
+
+            <div id="output">
+              <div class="table-border">
+                <table border="1">
+                  <thead>
                 </thead>
                 <tbody id="dates-table-body">
                 </tbody>
               </table>
             </div>
-
+            </div>
+            <br>
+            <a id="gen-input-fields" class="gen-button hide" href="#">Заполнить темы занятий</a>
+            <br>
             <div id="input-fields"></div>
 
-
-            <button type="submit" id="submit-btn">Сделать хорошо</button>
-
-            
+            <br>
+            <a id="good-btn" class="gen-button hide" href="#" id="action-btn">Сделать хорошо</a>
           </div>
       </form>
-        
-
-      
     </div>
 
-    <p>
-      <p class="pageNum"> 1 </p>/3
-      </p>
-  
-      <div class="previousPageBtn">sdadsadadsa</div> <div class="nextPageBtn">sasdasadsa</div>
+    <div class="Page">
+      <div style="display: flex; flex-direction: row; ">
+        <p>
+        <p class="pageNum"> 1 </p>/3
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <div class="previousPageBtn" onclick="previousPage()">Назад</div>
+        <div class="nextPageBtn" onclick="nextPage()">Далее</div>
+        <!-- <button class="doGood" type="submit" id="submit-btn">Сделать хорошо</button> -->
+        <!-- <a class="doGood hide" href="#" id="action-btn">Сделать хорошо</a> -->
+      </div>
+    </div>
+
     </div>
 
   </main>
@@ -190,8 +206,8 @@
   </footer>
 
 
-  <script src="index.js"></script>
-  <script src="script.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pagination.js"></script>
 </body>
 
 </html>
