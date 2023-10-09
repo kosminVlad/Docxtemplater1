@@ -144,6 +144,7 @@ align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  min-width: 690px;
 }
 
 .days-day {
