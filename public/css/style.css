@@ -91,6 +91,8 @@ main {
 .auto {
   width: auto;
   height: auto;
+  min-width: 690px;
+  min-height: 756px;
 }
 
 input {
@@ -146,6 +148,7 @@ label {
 
 .days {
   width: auto;
+  min-width: 600px;
 }
 
 .separation {
