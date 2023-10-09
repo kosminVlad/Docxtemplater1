@@ -11,6 +11,7 @@ let previousPageBtn = document.querySelector(".previousPageBtn")
 let weekDays = document.querySelector(".weekDays")
 let mainblock1 = document.querySelector(".main-block1")
 let genDate = document.querySelector("#gen-date")
+let Page = document.querySelector(".Page")
 
 function nextPage() {
     if (pageNumber == 1) {
@@ -23,6 +24,7 @@ function nextPage() {
         htmlNextPageBtn.classList.toggle("hide")
         mainblock1.classList.toggle("auto")
         htmlNextPageBtn.classList.toggle("zero-width")
+        Page.classList.toggle("mrgn-top")
     }
     if (pageNumber < 3) {
         pageNumber += 1
@@ -49,4 +51,15 @@ function previousPage() {
     htmlPageNum.innerHTML = `${pageNumber}`
     console.log(pageNumber);
 }
+function start(){    window.onkeydown = keyprogram
+}
+function keyprogram(e){ if (e.keyCode == 37){
+    previousPage()
+    }
+    else if(e.keyCode == 	39){
+        nextPage()
+    }
+}
+
+window.onload = start
 

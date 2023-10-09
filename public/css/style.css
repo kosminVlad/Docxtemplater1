@@ -46,7 +46,7 @@ main {
 
 .header-title {
   font-weight: 900;
-  font-size: 3em;
+  font-size: 2.7em;
   text-align: center;
   margin: 0 auto 20px;
   text-shadow: 2px 3px 0px rgba(150, 150, 150, 1);
@@ -72,13 +72,14 @@ main {
   font-size: 1.2em;
   text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
   /* border: 2px solid #fff; */
-  padding: 50px;
+  padding: 40px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 690px;
+  height: 735px;
   backdrop-filter: blur(125px);
 
   margin-bottom: 50px;
@@ -92,7 +93,7 @@ main {
   width: auto;
   height: auto;
   min-width: 690px;
-  min-height: 756px;
+  min-height: 735px;
 }
 
 input {
@@ -107,6 +108,7 @@ input {
   border-radius: 16px;
   outline: none;
   border: none;
+  max-width: 600px;
 }
 
 input:focus {
@@ -271,6 +273,7 @@ tbody tr:hover {
 #input-form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   justify-content: center;
   margin-left: -10px;
 }
@@ -291,8 +294,7 @@ tbody tr:hover {
 }
 
 .hide {
-  display: none;
-  visibility: hidden;
+  display: none!important;
 }
 .show {
   display: block;
@@ -327,6 +329,10 @@ tbody tr:hover {
   display: flex;
   justify-content: space-between;
 }
+
+/* .mrgn-top {
+  margin-top: 50px;
+} */
 
 .previousPageBtn:hover {
   color: #ffe293;
